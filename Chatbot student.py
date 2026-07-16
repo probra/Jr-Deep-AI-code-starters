@@ -32,10 +32,14 @@ RESPONSE_BANK = {
     "hello": [
         "Oh, hello there.",
         "Hi! I was just recalculating the meaning of life.",
+        "Whatup",
     ],
     "name": [
         f"I'm {BOT_NAME}, obviously.",
     ],
+    "age": [
+        "I am 4 years old",
+    ]
     # TODO: Add at least 4-5 more of your own keywords and responses!
     # Give your bot a theme/personality — grumpy robot, fortune
     # teller, conspiracy-theorist toaster, overly-dramatic diary,
@@ -88,14 +92,15 @@ EXIT_WORDS = ("bye", "quit", "exit")
 #      choice from FALLBACK_RESPONSES instead.
 def get_response(player_input):
     # TODO: replace this line with your code (see steps above)
-    # text = player_input.lower()
-    #
+    text = player_input.lower()
+
     # for something in something
     # if the keyword is in the text
     # find the matching response
     # find your response
     # return our response
     # if keyword not in the text, return a random fallback choice
+    return random.choice(FALLBACK_RESPONSES)
 
 
 # ------------------------------------------------------------------
@@ -107,15 +112,15 @@ def main():
     print(f"Chatting with {BOT_NAME}  (type 'bye' to quit)")
     print("=" * 50)
 
-    # infinite loop
-        # take input "player_input"
+    while True:
+        player_input = input("> ")
 
-        #if player_input.lower() in EXIT_WORDS:
-            #print(f"{BOT_NAME}: See you later!")
-            #break
+        if player_input.lower() in EXIT_WORDS:
+            print(f"{BOT_NAME}: See you later!")
+            break
 
-        #response = get_response(player_input)
-        #print(f"{BOT_NAME}: {response}")
+        response = get_response(player_input)
+        print(f"{BOT_NAME}: {response}")
 
 
 if __name__ == "__main__":
